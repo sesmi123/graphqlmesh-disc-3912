@@ -1,0 +1,11 @@
+schema {
+  query: Query
+}
+
+type Query {
+  companySettingsReportEmail(companyId: Int!): ReportEmail
+}
+
+type ReportEmail {
+  reportEmail: String
+}

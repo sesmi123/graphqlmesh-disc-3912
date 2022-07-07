@@ -1,0 +1,28 @@
+sources:
+  - name: CRM
+    handler: 
+      graphql:
+        endpoint: http://localhost:2010/graphql
+  - name: Loki
+    handler: 
+      graphql:
+        endpoint: http://localhost:2009/graphql
+additionalTypeDefs: |
+    extend type Company{
+      reportEmail: ReportEmail!
+    }
+additionalResolvers:
+  - targetTypeName: Company
+    targetFieldName: reportEmail
+    sourceName: Loki
+    sourceTypeName: Query
+    sourceFieldName: companySettingsReportEmail
+    requiredSelectionSet: |
+      {
+        id
+      }
+    sourceArgs:
+      companyId: "{root.id}"
+serve:
+  hostname: localhost
+  port: 4010

@@ -1,0 +1,17 @@
+type Query {
+  crm: CRM
+  companySettingsReportEmail(companyId: Int!): ReportEmail
+}
+
+type CRM {
+  companies: [Company!]!
+}
+
+type Company {
+  id: ID!
+  reportEmail: ReportEmail!
+}
+
+type ReportEmail {
+  reportEmail: String
+}

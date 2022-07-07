@@ -1,0 +1,15 @@
+schema {
+  query: Query
+}
+
+type Query {
+  crm: CRM
+}
+
+type CRM {
+  companies: [Company!]!
+}
+
+type Company {
+  id: ID!
+}
