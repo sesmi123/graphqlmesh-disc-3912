@@ -23,6 +23,9 @@ additionalResolvers:
       }
     sourceArgs:
       companyId: "{root.id}"
+# OR
+# additionalResolvers:
+#   - './resolvers'
 serve:
   hostname: localhost
   port: 4010
